@@ -13,8 +13,11 @@ public class AsteroidController : MonoBehaviour
     float inicioZ;
     float inicioY;
     Vector3 posicao;
+    int meta;
+    
     void Start()
     {
+        meta = 0;
         inicioZ = 0;
         inicioY = 7;
         velocidade = -7;
@@ -29,10 +32,14 @@ public class AsteroidController : MonoBehaviour
         transform.Translate(0, velocidade * Time.deltaTime, 0);
         if (transform.position.y <= -7)
         {
-            Life.life--;
+            
             posicao.x = Random.Range(-2.75f, 2.75f);
             posicao.y = inicioY;
             transform.position = posicao;
+            if (meta == 4)
+            {
+                Life.life--;
+            }
             
         }
 
@@ -53,6 +60,36 @@ public class AsteroidController : MonoBehaviour
             posicao.y = inicioY;
             transform.position = posicao;
             Score.score += 10;
+            /* metas do jogo
+             * 80 velocidade da pedra aumenta +1
+             * 160 velocidade aumenta +1
+             * 300 pontos velocidade +1
+             * 500 pontos e 5 de life
+             */
+            if (Score.score == 80)
+            {
+                velocidade -= 1;
+                meta++;
+                Debug.Log(velocidade);
+            }
+            if (Score.score == 160)
+            {
+                velocidade -= 1.5f;
+                meta++;
+                Debug.Log(velocidade);
+            }
+            if (Score.score == 300)
+            {
+                velocidade -= 2f;
+                meta++;
+                Debug.Log(velocidade);
+            }
+            if (Score.score == 500 && Life.life == 5)
+            {
+                velocidade -= 3;
+                meta++;
+                Debug.Log(velocidade);
+            }
         }
     }
     

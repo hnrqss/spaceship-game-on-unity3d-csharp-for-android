@@ -7,6 +7,8 @@ public class ShipController : MonoBehaviour
     // Use this for initialization
     //limite até onde a nave pode andar x -2.57 esquerda e 2.57 direita
     float velocidade;
+    public GameObject explosion;
+    GameObject cloneExplosion;
     void Start()
     {
         velocidade = 5;
@@ -30,5 +32,14 @@ public class ShipController : MonoBehaviour
             }
         }
 
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Asteroid"))
+        {
+            cloneExplosion=(GameObject)Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(cloneExplosion,1);
+
+        }
     }
 }

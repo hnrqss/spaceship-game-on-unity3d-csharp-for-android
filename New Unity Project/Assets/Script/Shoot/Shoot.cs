@@ -6,6 +6,8 @@ public class Shoot : MonoBehaviour {
     // y = 7 bala sai da tela
     // Use this for initialization
     float velocidade;
+    public GameObject exploson;
+    GameObject cloneExplosion;
     void Start () {
         velocidade = 8;
 	}
@@ -24,7 +26,9 @@ public class Shoot : MonoBehaviour {
     {
         if (other.CompareTag("Asteroid"))
         {
+            cloneExplosion = (GameObject)Instantiate(exploson,transform.position,transform.rotation);
             Destroy(gameObject);
+            Destroy(cloneExplosion,1);
 
         }
     }
