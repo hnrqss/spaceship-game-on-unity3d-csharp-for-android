@@ -18,6 +18,8 @@ public class Life : MonoBehaviour {
     }
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 180, 20), "Life: "+life);
+        GUI.Label(new Rect(10, 10, 180, 20), "Life: " + life);
     }
+   
+
 }

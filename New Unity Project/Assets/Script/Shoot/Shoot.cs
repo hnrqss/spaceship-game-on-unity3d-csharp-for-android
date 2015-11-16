@@ -16,7 +16,7 @@ public class Shoot : MonoBehaviour {
     void Update()
     {
         transform.Translate(0, velocidade * Time.deltaTime, 0);
-        if (transform.position.y >= 7)
+        if (transform.position.y >= 7)//colocar um objeto fora da cena para verificar se colidir com a bala ele destroi o objeto
         {
             Destroy(gameObject);
         }

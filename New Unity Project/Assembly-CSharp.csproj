@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Asteroid\AsteroidController.cs" />
+     <Compile Include="Assets\Script\Asteroid\AsteroidGenerator.cs" />
      <Compile Include="Assets\Script\Asteroid\RockRoll.cs" />
      <Compile Include="Assets\Script\Scores\Life.cs" />
+     <Compile Include="Assets\Script\Scores\LifeBall.cs" />
+     <Compile Include="Assets\Script\Scores\LifeGenerator.cs" />
      <Compile Include="Assets\Script\Scores\Score.cs" />
      <Compile Include="Assets\Script\Ship\ShipController.cs" />
      <Compile Include="Assets\Script\Shoot\Shoot.cs" />
@@ -57,11 +60,17 @@
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

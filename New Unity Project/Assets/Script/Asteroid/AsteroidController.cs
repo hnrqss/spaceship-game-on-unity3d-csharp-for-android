@@ -7,58 +7,47 @@ public class AsteroidController : MonoBehaviour
     //termina em y = -7
     // Use this for initialization
     // x = -3.20 e 3.20
-    float velocidade;
+    static float velocidade = 6;
     //public GameObject asteroid;
     // float currentTime;
-    float inicioZ;
-    float inicioY;
+    static int meta = 0;
     Vector3 posicao;
-    int meta;
-    
-    void Start()
-    {
-        meta = 0;
-        inicioZ = 0;
-        inicioY = 7;
-        velocidade = -7;
-        // currentTime = 1.2f;
-        posicao = new Vector3(0, 0, 0);
-        posicao.z = inicioZ;
-    }
-
     // Update is called once per frame
+    void start() {
+        
+    }
     void Update()
     {
-        transform.Translate(0, velocidade * Time.deltaTime, 0);
+        transform.Translate(0,-1.0f* velocidade * Time.deltaTime, 0);
+        
+       
+
         if (transform.position.y <= -7)
         {
-            
-            posicao.x = Random.Range(-2.75f, 2.75f);
-            posicao.y = inicioY;
-            transform.position = posicao;
-            if (meta == 4)
-            {
+
+            Destroy(gameObject);
+            if (meta == 1)
                 Life.life--;
-            }
-            
         }
 
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") )
+        if (other.CompareTag("Player"))
         {
-            posicao.x = Random.Range(-2.75f, 2.75f);
+            /*posicao.x = Random.Range(-2.75f, 2.75f);
             posicao.y = inicioY;
-            transform.position = posicao;
+            transform.position = posicao;*/
+            Destroy(gameObject);
             Life.life--;
-            
+
         }
         if (other.CompareTag("Bullet"))
         {
-            posicao.x = Random.Range(-2.75f, 2.75f);
+            /*posicao.x = Random.Range(-2.75f, 2.75f);
             posicao.y = inicioY;
-            transform.position = posicao;
+            transform.position = posicao;*/
+            Destroy(gameObject);
             Score.score += 10;
             /* metas do jogo
              * 80 velocidade da pedra aumenta +1
@@ -66,31 +55,19 @@ public class AsteroidController : MonoBehaviour
              * 300 pontos velocidade +1
              * 500 pontos e 5 de life
              */
-            if (Score.score == 80)
+            if (Score.score == 100)
+                velocidade = 6.5f;
+            if (Score.score == 250)
+                velocidade = 7.5f;
+            if (Score.score == 400)
             {
-                velocidade -= 1;
+                velocidade = 9.0f;
                 meta++;
-                Debug.Log(velocidade);
             }
-            if (Score.score == 160)
-            {
-                velocidade -= 1.5f;
-                meta++;
-                Debug.Log(velocidade);
-            }
-            if (Score.score == 300)
-            {
-                velocidade -= 2f;
-                meta++;
-                Debug.Log(velocidade);
-            }
-            if (Score.score == 500 && Life.life == 5)
-            {
-                velocidade -= 3;
-                meta++;
-                Debug.Log(velocidade);
-            }
+                
+            
+
         }
+
     }
-    
 }
